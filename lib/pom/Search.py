@@ -7,5 +7,10 @@ class Search:
         self.driver = driver
         self.logger = get_module_logger(__name__)
 
-    def get_search_bar(self):
+    def get_search_results(self):
         return self.driver.find_element_by_id('search')
+
+    def get_image_urls(self):
+        elems = self.get_search_results().find_elements_by_tag_name('img')
+        for elem in elems:
+            self.logger.debug(elem.get_attribute('src'))
