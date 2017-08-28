@@ -8,6 +8,17 @@ from lib.util.Logger import get_module_logger
 search_str = 'test'
 images_dir = 'images'
 
+
+def save_image(url):
+    response = requests.get(url)
+
+    filename = re.split('/', url)
+    path = os.path.join(images_dir, filename[-1])
+
+    with open(path, "wb") as fout:
+        fout.write(response.content)
+
+
 driver = webdriver.Chrome(executable_path='/Users/ikuma/Downloads/chromedriver')
 driver.get('https://www.google.co.jp/imghp?hl=ja')
 logger = get_module_logger(__name__)
@@ -17,13 +28,6 @@ search = home.search_with_string(search_str)
 urls = search.get_image_urls()
 
 for url in urls:
-    response = requests.get(url)
-
-    # get file name from the path
-    paths = re.split('/', url)
-    full_path = os.path.join('images', paths[-1])
-
-    with open(full_path, "wb") as fout:
-        fout.write(response.content)
+    save_image(url)
 
 driver.quit()
