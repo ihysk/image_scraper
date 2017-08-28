@@ -1,11 +1,11 @@
 import os
 import re
 import requests
+import sys
 from selenium import webdriver
 from lib.pom.Home import Home
 from lib.util.Logger import get_module_logger
 
-search_str = 'test'
 images_dir = 'images'
 
 
@@ -24,7 +24,7 @@ driver.get('https://www.google.co.jp/imghp?hl=ja')
 logger = get_module_logger(__name__)
 
 home = Home(driver)
-search = home.search_with_string(search_str)
+search = home.search_with_string(sys.argv[1])
 urls = search.get_image_urls()
 
 for url in urls:
