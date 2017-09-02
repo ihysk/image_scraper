@@ -7,3 +7,4 @@ Image scraping from Google Image Search
 ```
 python3 scraper.py "beautiful faces"
 ```
+Downloaded images are stored in `./images/*`
