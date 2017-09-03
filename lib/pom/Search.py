@@ -1,6 +1,7 @@
 import re
 import urllib.parse
 from lib.util.Logger import get_module_logger
+from selenium.webdriver.common.action_chains import ActionChains
 
 
 class Search:
@@ -26,3 +27,10 @@ class Search:
                 urls.append(url)
 
         return urls
+
+    def move_to_footer(self):
+        footer = self.driver.find_element_by_id('footcnt')
+        ActionChains(self.driver).move_to_element(footer).perform()
+
+    def press_more_button(self):
+        self.driver.find_element_by_id('smb').click()
