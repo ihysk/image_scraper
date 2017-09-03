@@ -2,7 +2,6 @@ import os
 import re
 import requests
 import sys
-import time
 from selenium import webdriver
 from lib.pom.Home import Home
 from lib.util.Logger import get_module_logger
@@ -26,22 +25,7 @@ logger = get_module_logger(__name__)
 
 home = Home(driver)
 search = home.search_with_string(sys.argv[1])
-search.move_to_footer()
-time.sleep(5)
-search.move_to_footer()
-time.sleep(5)
-search.move_to_footer()
-time.sleep(5)
-search.move_to_footer()
-search.press_more_button()
-time.sleep(5)
-search.move_to_footer()
-time.sleep(5)
-search.move_to_footer()
-time.sleep(5)
-search.move_to_footer()
-time.sleep(5)
-search.move_to_footer()
+search.scroll_down_to_display_all_images()
 urls = search.get_image_urls()
 
 for url in urls:

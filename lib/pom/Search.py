@@ -1,4 +1,5 @@
 import re
+import time
 import urllib.parse
 from lib.util.Logger import get_module_logger
 from selenium.webdriver.common.action_chains import ActionChains
@@ -34,3 +35,23 @@ class Search:
 
     def press_more_button(self):
         self.driver.find_element_by_id('smb').click()
+
+    def scroll_down_to_display_all_images(self):
+        self.move_to_footer()
+        time.sleep(5)
+        self.move_to_footer()
+        time.sleep(5)
+        self.move_to_footer()
+        time.sleep(5)
+        self.move_to_footer()
+        self.press_more_button()
+        time.sleep(5)
+        self.move_to_footer()
+        time.sleep(5)
+        self.move_to_footer()
+        time.sleep(5)
+        self.move_to_footer()
+        time.sleep(5)
+        self.move_to_footer()
+        time.sleep(5)
+        self.move_to_footer()
