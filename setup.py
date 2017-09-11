@@ -5,8 +5,8 @@ from setuptools import setup
 setup(
     name='image_scraper',
     version='0.0.2',
-    description='A sample Python project',
-    long_description='This is a sample to say Hello!',
+    description='Image collector by selenium',
+    long_description='A tool to collect images which matches specific keyword',
     url='https://github.com/ihysk/image_scraper',
     author='ihysk',
     author_email='sirouma.09@gmail.com',
